@@ -8,7 +8,7 @@ gradle run
 
 Start an JFR recording of the running application
 ```shell
-jcmd nl.ns.ApplicationKt JFR.start name=1 filename=dump.jfr
+jcmd nl.ns.ApplicationKt JFR.start name=JFRRecording filename=dump.jfr
 ```
 
 Check an JFR recording of the running application
