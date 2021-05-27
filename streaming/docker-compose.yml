@@ -15,11 +15,12 @@ services:
       - DOCKER_INFLUXDB_INIT_ORG=NS
       - DOCKER_INFLUXDB_INIT_MODE=setup
   grafana:
+    container_name: grafana
     image: "grafana/grafana:latest"
     ports:
       - "3000:3000"
     volumes:
-      - "grafana-storage:/var/lib/grafana"
+      - ./grafana.ini:/etc/grafana/grafana.ini
+      - ./influxdb.yaml:/etc/grafana/provisioning/datasources/influxdb.yaml
 volumes:
   influxdb:
-  grafana-storage:
