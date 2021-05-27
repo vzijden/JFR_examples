@@ -9,10 +9,7 @@ import kotlinx.coroutines.launch
 
 class JFRInfluxStreamer {
     private val influxDBFactory = InfluxDBClientKotlinFactory.create(
-        "http://localhost:8086",
-        "QGAxr0pGz8HaqmwQPyBbWSLmDGy56HMazp5AFUS-vEKrx2Xm9xz6FUKf0EHXr41KGuHm_7hGnPiLHSdReGl82Q==".toCharArray(),
-        "NS",
-        "jfr"
+        "http://localhost:8086", "token".toCharArray(), "NS", "JFR"
     )
     init {
         val recordingStream = RecordingStream()
