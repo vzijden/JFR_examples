@@ -12,19 +12,12 @@ version = "1.0-SNAPSHOT"
 allprojects {
     apply {
         plugin("java")
-        plugin("org.jetbrains.kotlin.jvm")
         plugin("application")
     }
 
     repositories {
         mavenCentral()
         jcenter()
-    }
-
-    tasks.withType<KotlinCompile>().configureEach {
-        kotlinOptions {
-            jvmTarget = "14"
-        }
     }
 
     tasks.withType<JavaExec>().configureEach {

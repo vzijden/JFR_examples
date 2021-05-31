@@ -11,13 +11,21 @@ public class RestCallEvent extends Event {
     private static final String NAME = "REST_CALL_EVENT";
 
     @Label("endpoint")
-    private String endpoint;
+    private final String endpoint;
 
-    public RestCallEvent(String endpoint) {
+    @Label("ip")
+    private final String ip;
+
+    public RestCallEvent(String endpoint, String ip) {
         this.endpoint = endpoint;
+        this.ip = ip;
     }
 
     public static String getNAME() {
         return NAME;
+    }
+
+    public String getIp() {
+        return ip;
     }
 }
