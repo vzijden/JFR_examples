@@ -26,6 +26,10 @@ allprojects {
         jvmArgs("-Xmx512m", "-XX:StartFlightRecording=dumponexit=true,filename=/tmp/jfrdump-${getTime()}.jfr,path-to-gc-roots=true")
     }
 
+    tasks.withType<Jar>().configureEach {
+        manifest.attributes["Main-Class"] = "nl.ns.jfr.Main"
+    }
+
 }
 
 @OptIn(ExperimentalTime::class)

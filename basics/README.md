@@ -1,24 +1,34 @@
 ## Perquisites
 - JDK 8 or later
 ## Basics
+
+### Start an example with JFR from the commandline
+Compile executable jars using Gradle
+```commandline
+gradle :basics:jar
+```
+Start 
+
 ### Creating a dump of a running application
- Start the REST API 
- ```shell
+ Start the application
+
+#### Using Gradle
+ ```commandline
 gradle run
 ```
 
 Start an JFR recording of the running application
-```shell
+```commandline
 jcmd nl.ns.ApplicationKt JFR.start name=JFRRecording filename=dump.jfr
 ```
 
 Check an JFR recording of the running application
-```shell
+```commandline
 jcmd nl.ns.ApplicationKt JFR.check
 ```
 
 Stop and dump an JFR recording of the running application
-```shell
+```commandline
 jcmd nl.ns.ApplicationKt JFR.dump name=JFRRecording filename=dump.jfr
 ```
 
