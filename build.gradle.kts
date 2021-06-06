@@ -23,7 +23,7 @@ allprojects {
     tasks.withType<JavaExec>().configureEach {
         main = "nl.ns.jfr.Main"
 
-        jvmArgs("-Xmx512m", "-XX:StartFlightRecording=dumponexit=true,filename=/tmp/jfrdump-${getTime()}.jfr,path-to-gc-roots=true")
+        jvmArgs("-Xmx512m", "-XX:StartFlightRecording=dumponexit=true,settings=profile,filename=/tmp/jfrdump-${getTime()}.jfr,path-to-gc-roots=true")
     }
 
     tasks.withType<Jar>().configureEach {

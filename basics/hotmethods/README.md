@@ -9,13 +9,12 @@ Compile executable jars using Gradle
 ```shell
 gradlew :basics:hotmethods:jar
 ```
-To launch the application with JFR and directly start a dump
+To launch the application with JFR and directly start a dump.
 
 ```shell
-java -XX:StartFlightRecording=dumponexit=true,filename=/tmp/dump.jfr,disk=true -jar build/libs/hotmethods.jar 
+java -XX:StartFlightRecording=dumponexit=true,filename=/tmp/dump.jfr,disk=true,settings=profile -jar build/libs/hotmethods.jar 
 ```
-
-JFR wil write the dump file to `/tmp/dump.jfr` after the program has exited. The next step is to use this file to analyse your application, see [Analysing the JFR dump](#analysing-the-jfr-dump)
+This will create a JFR dump using the preconfigured 'profiling' configuration. JFR wil write the dump file to `/tmp/dump.jfr` after the program has exited. The next step is to use this file to analyse your application, see [Analysing the JFR dump](#analysing-the-jfr-dump)
 
 ### Run the example using Gradle
 This example can also be launched using the Gradle Application plugin. This will start the application with JVM options to start a flight recording, which will be dumped to `/tmp/jdrdump-{timestamp}.jfr` upon exit of the application. Each example application will automatically after some time.
