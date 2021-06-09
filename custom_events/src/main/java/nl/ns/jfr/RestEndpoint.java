@@ -12,6 +12,6 @@ public class RestEndpoint {
     @Produces(MediaType.TEXT_PLAIN)
     public String get() {
 
-        return "hiVincent";
+        return "hiVincent\nNS Rules";
     }
 }

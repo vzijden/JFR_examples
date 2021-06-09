@@ -1,7 +1,11 @@
 # Event streaming
 This project demonstrates the capabilities of the JFR event streaming that is available since JDK 14. In this example, custom JFR from a webservice are streamed to a realtime dashboard using Grafana and InfluxDB.
 
+## Perquisites
+- JDK 14 or later
+- Docker
 ### Note on event streaming and performance
+
 #### Comparison with performance of other realtime monitoring solutions?
 
 ## Running
@@ -21,6 +25,3 @@ The webservice exposes a single endpoint at [localhost:8080/hoiRick](localhost:8
 ### Monitoring events
 
 
-## Perquisites
-- JDK 14 or later
-- Docker 
