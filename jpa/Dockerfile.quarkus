@@ -1,0 +1,7 @@
+FROM openjdk:14
+
+COPY build/quarkus-app/lib /libs
+
+COPY build/quarkus-app/quarkus-run.jar /app
+
+RUN java -jar /app/jpa.jar -classpath /libs/**/*

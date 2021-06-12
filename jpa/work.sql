@@ -1,0 +1,5 @@
+BEGIN WORK;
+LOCK TABLE messages IN EXCLUSIVE MODE;
+select * FROM messages;
+
+COMMIT WORK;

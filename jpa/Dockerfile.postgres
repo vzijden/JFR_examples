@@ -1,0 +1,16 @@
+FROM postgres:13.3
+
+ENV POSTGRES_PASSWORD=jpa
+ENV POSTGRES_USER=jpa
+
+RUN apt update
+RUN apt install -y cron
+
+COPY init.sql /docker-entrypoint-initdb.d
+COPY runwork.sh /
+COPY start.sh /
+COPY work.sql /
+RUN chmod +x /start.sh && chmod +x ./runwork.sh
+
+ENTRYPOINT ["/start.sh"]
+CMD ["start"]
