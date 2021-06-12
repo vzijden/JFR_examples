@@ -3,3 +3,4 @@ include("basics:hotmethods")
 
 include("custom_events")
 include("streaming")
+include("jpa")

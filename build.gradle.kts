@@ -1,9 +1,7 @@
-import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
-import kotlin.time.ExperimentalTime
 import kotlin.time.milliseconds
 
 plugins {
-    id("org.jetbrains.kotlin.jvm") version "1.4.30"
+//    id("org.jetbrains.kotlin.jvm") version "1.4.30"
 }
 
 group = "nl.ns.webcast"
@@ -23,7 +21,9 @@ allprojects {
     tasks.withType<JavaExec>().configureEach {
         main = "nl.ns.jfr.Main"
 
-        jvmArgs("-Xmx512m", "-XX:StartFlightRecording=dumponexit=true,settings=profile,filename=/tmp/jfrdump-${getTime()}.jfr,path-to-gc-roots=true")
+
+        val rootPath = this.project.rootProject.rootDir
+        jvmArgs("-Xmx512m", "-XX:StartFlightRecording=dumponexit=true,settings=${rootPath}/JFRConfig.jfc,filename=/tmp/jfrdump-${getTime()}.jfr,path-to-gc-roots=true")
     }
 
     tasks.withType<Jar>().configureEach {
@@ -32,7 +32,7 @@ allprojects {
 
 }
 
-@OptIn(ExperimentalTime::class)
+@OptIn(kotlin.time.ExperimentalTime::class)
 fun getTime(): String {
     return System.currentTimeMillis().milliseconds.toIsoString()
 }
