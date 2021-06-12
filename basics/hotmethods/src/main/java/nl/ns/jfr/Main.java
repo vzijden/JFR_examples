@@ -16,8 +16,9 @@ public class Main {
         final List<Integer> items = IntStream.range(0, COUNT).boxed().collect(Collectors.toList());
 
         final Runnable runnable = () -> {
+            final Random random = new Random();
             for (int i = 0; i < ITERATIONS; i++) {
-                final boolean contains = items.contains(new Random().nextInt(COUNT));
+                final boolean contains = items.contains(random.nextInt(COUNT));
                 if (!contains) {
                     throw new RuntimeException("Weird");
                 }
